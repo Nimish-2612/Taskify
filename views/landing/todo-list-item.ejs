@@ -1,0 +1,22 @@
+<li id="todo-list-items">
+  <p id="task-status" class="btn-alt"><%= todo.isCompleted %></p>
+  <h2><%= todo.title %></h2>
+  <p><%= todo.text %></p>
+  <div id="util-btns">
+    <form action="/add-task/<%= todo.id %>" method="GET">
+      <button class="btn">Edit Task</button>
+    </form>
+
+    <form action="/add-task/<%= todo.id %>/delete" method="POST">
+      <button class="btn">Delete Task</button>
+    </form>
+
+    <form data-task-Id="<%= todo.id %>" class="taskCompletedForm">
+      <button class="btn task-completed-btn">Completed</button>
+    </form>
+
+    <form action="/event-form/<%= todo.id %>" METHOD="GET">
+      <button class="btn">Add to Calendar</button>
+    </form>
+  </div>
+</li>

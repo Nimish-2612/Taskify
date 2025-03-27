@@ -1,0 +1,25 @@
+<%- include('../includes/head') %>
+<link rel="stylesheet" href="/styles/todos-styles.css">
+</head>
+<body>
+    <%- include('../includes/header') %>
+    <main>  
+      <h1>Add a Task</h1>
+        <form id="add-todo-form" action="/add-task/<%= todo._id %>" method="POST">
+          <p>
+            <label for="textTitle">
+              <h3>To-do Title</h3>
+            </label>
+            <input type="text" id="textTitle" value="<%= todo.title %>"  name="textTitle" required>
+          </p>
+
+          <p>
+            <label for="text"><h3>To-do text</h3></label>
+            <input type="text" id="text" value="<%= todo.text %>"  name="text" required />
+          </p>
+          
+          <button class="btn">Save</button>
+        </form>
+
+    </main>
+<%- include('../includes/footer') %>

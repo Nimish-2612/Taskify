@@ -1,0 +1,18 @@
+<nav>
+  <ul>
+    <% if(!locals.isAuthenticated){ %>
+
+    <li><a class="btn" href="/">Home</a></li>
+    <li><a class="btn" href="/signup">Signup</a></li>
+    <li><a class="btn-alt" href="/login">Login</a></li>
+    <% } else {%>
+
+      <li><a class="btn" href="dashboard/calendar">Calendar</a></li>
+    <li><a class="btn" href="/dashboard">Dashboard</a></li>
+    <li><a class="btn" href="/add-task">Add Task</a></li>
+    <li>
+      <a href="/auth/logout" class="btn">Logout</a>
+    </li>
+    <% } %>
+  </ul>
+</nav>

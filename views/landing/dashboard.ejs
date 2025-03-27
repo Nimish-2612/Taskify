@@ -1,0 +1,47 @@
+<%- include('../includes/head') %>
+<link rel="stylesheet" href="/styles/todos-styles.css">
+<script src="/scripts/task-management-ajax.js" defer></script>
+<script src="/scripts/progress-bar.js" defer></script>
+</head>
+<body>
+    <%- include('../includes/header') %>
+    <main>
+        <h1>Welcome <%= userName %></h1>
+        <% if(todos.length>0){ %>
+        <h2>Your Progress</h2>
+        <div class="progress-container">
+            <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <% } %>
+        <h1>All todos</h1>
+        <section id="incomplete-tasks">
+        <% if(incompleteTasks.length === 0){ %>
+            <p>You have no upcoming tasks, Let's add something!
+            </p>
+            <% } else { %>
+                <h2>Tasks to do</h2>
+        <ul id="todos-list">
+            <% for (const todo of todos){ if(!todo.isCompleted) {%>
+            <li class="task" data-completed="<%= todo.isCompleted %>">
+                <%- include('todo-list-item',{todo:todo})%>
+            </li>
+            <% } }%>
+        </ul>
+        <% } %>
+    </section>
+        <hr>
+        <% if(completedTasks.length>0){ %>
+        <section id="completed-tasks">
+            <h2>Completed Tasks</h2>
+        
+        <% for(const todo of todos){ 
+            if(todo.isCompleted){%>
+            <li class="task" data-completed="<%= todo.isCompleted %>">
+                <%- include('todo-list-item',{todo:todo}) %>
+             </li>
+        <% }} %>
+        <% } %>
+        </section>
+        
+    </main>
+<%- include('../includes/footer') %>

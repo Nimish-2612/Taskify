@@ -1,0 +1,25 @@
+<%- include('../includes/head') %>
+<link rel="stylesheet" href="/styles/forms-styles.css">
+</head>
+<body>
+    <%- include('../includes/header') %>
+    <main>  
+      <h2>Create Google Calendar Event</h2>
+      <form action="/create-event" method="POST">
+        <label for="summary">Event Summary:</label>
+        <input type="text" id="summary" name="summary" value="<%= todo.title %>" required><br><br>
+    
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" ><%= todo.text %></textarea><br><br>
+    
+        <label for="startDateTime">Start Date and Time:</label>
+        <input type="datetime-local" id="startDateTime" name="startDateTime" required><br><br>
+    
+        <label for="endDateTime">End Date and Time:</label>
+        <input type="datetime-local" id="endDateTime" name="endDateTime" required><br><br>
+    
+        <button class="btn" type="submit">Create Event</button>
+      </form>
+
+    </main>
+<%- include('../includes/footer') %>
